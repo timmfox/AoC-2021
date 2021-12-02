@@ -12,7 +12,7 @@
 (defn travel1
   [x]
   (reduce (fn [{:keys [distance depth] :as acc} {:keys [cmd val]}]
-            (condp = cmd
+            (case cmd
               "forward" (assoc acc :distance (+ distance val))
               "up"      (assoc acc :depth    (- depth val))
               "down"    (assoc acc :depth    (+ depth val))))
@@ -25,7 +25,7 @@
 (defn travel2
   [x]
   (reduce (fn [{:keys [distance depth aim] :as acc} {:keys [cmd val]}]
-            (condp = cmd
+            (case cmd
               "forward" (assoc acc 
                                :distance (+ distance val)
                                :depth    (+ depth (* aim val)))
