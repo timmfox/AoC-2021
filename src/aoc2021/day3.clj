@@ -51,5 +51,5 @@
          (filter #(= filter-char (get % bit-idx)) coll)
          (inc bit-idx))))))
 
-(apply * (map bits->int [(filter-readings > [\1 \0] input)
-                         (filter-readings < [\0 \1] input)]))
+(def part2 (apply * (map bits->int [(filter-readings > [\1 \0] input)
+                                    (filter-readings < [\0 \1] input)])))
